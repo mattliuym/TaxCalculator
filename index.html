@@ -34,8 +34,8 @@
     <header><h2>Income Tax Calculator of New Zealand</h2></header>
     <div>
         <p>Please input your annual income below</p>
-        <span>$</span><input name="income" id="income"/>
-        <button onclick="calculateTax()">Calculate</button>
+        <span>$</span><input placeholder="your income" name="income" id="income"/>
+        <button onclick="calculateTax()">Calculate</button><button onclick="location.reload()">Clear</button>
     </div>
     <div id="result" style="display:none">
         <table>
