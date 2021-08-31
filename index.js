@@ -4,7 +4,7 @@ const tax3=tax2+(70000-48000)*0.3;
 const tax4=tax3+(180000-70000)*0.33;
 
 function BindEvent(e){
-    if(e.keyCode==13){
+    if(e.keyCode===13){
         calculateTax();
         e.returnValue = false;
     }
