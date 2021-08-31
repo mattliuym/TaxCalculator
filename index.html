@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="application/javascript" src="index.js"></script>
+    <link rel="stylesheet" href="index.css">
+    <title>Income Tax Calculator</title>
+    <style>
+        #result table{
+            margin-top: 15px;
+            text-align: center;
+            border: solid 1px;
+            width: 800px;
+
+        }
+        #result th{
+            /*border: solid 1px;*/
+            text-align: center;
+            background: #085a64;
+            color:white;
+        }
+        #result tr{
+            border-bottom: 1px solid #f0f0f0;
+            text-align: left;
+            height: 30px;
+            line-height: 30px;
+        }
+        #result td{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header><h2>Income Tax Calculator of New Zealand</h2></header>
+    <div>
+        <p>Please input your annual income below</p>
+        <span>$</span><input name="income" id="income"/>
+        <button onclick="calculateTax()">Calculate</button>
+    </div>
+    <div id="result" style="display:none">
+        <table>
+            <tbody>
+            <tr><th>Annual Income(before Tax)</th><th>Tax</th><th>After-tax income</th><th>Average Tax Rate</th></tr>
+            <tr><td id="1"></td><td id="2"></td><td id="3"></td><td id="4"></td></tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
