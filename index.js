@@ -3,6 +3,12 @@ const tax2=tax1+(48000-14000)*0.175; //7420
 const tax3=tax2+(70000-48000)*0.3;
 const tax4=tax3+(180000-70000)*0.33;
 
+function BindEvent(e){
+    if(e.keyCode==13){
+        calculateTax();
+        e.returnValue = false;
+    }
+}
 function calculateTax(){
     let income = document.getElementById("income").value;
     if(!income){
@@ -16,6 +22,7 @@ function calculateTax(){
     document.getElementById("2").innerText=income_tax.toFixed(2);
     document.getElementById("3").innerText=after_tax.toFixed(2);
     document.getElementById("4").innerText=average.toFixed(2)+"%";
+    document.getElementById("5").innerText=(after_tax/12).toFixed(2);
     document.getElementById("result").style.display="block";
 }
 
