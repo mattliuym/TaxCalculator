@@ -9,8 +9,10 @@ function BindEvent(e){
         e.returnValue = false;
     }
 }
+//the tax calculating function
 function calculateTax(){
-    let income = document.getElementById("income").value;
+    let income = document.getElementById("income").value.replace(/,/g, "");
+    console.log(income);
     if(!income){
         alert("Your income cannot be none (so poor, man T-T)");
         return;
@@ -18,14 +20,15 @@ function calculateTax(){
     let income_tax=calculator(income);//tax
     let after_tax = income-income_tax;//after-tax income
     let average = income_tax/income*100;
-    document.getElementById("1").innerText=income;
-    document.getElementById("2").innerText=income_tax.toFixed(2);
-    document.getElementById("3").innerText=after_tax.toFixed(2);
+    document.getElementById("1").innerText=numberWithCommas(income);
+    document.getElementById("2").innerText=numberWithCommas(income_tax.toFixed(2));
+    document.getElementById("3").innerText=numberWithCommas(after_tax.toFixed(2));
     document.getElementById("4").innerText=average.toFixed(2)+"%";
-    document.getElementById("5").innerText=(after_tax/12).toFixed(2);
+    document.getElementById("5").innerText=numberWithCommas((after_tax/12).toFixed(2));
     document.getElementById("result").style.display="block";
 }
 
+//return the tax after calculating
 function calculator(value){
     let tax= 0;
     //calculate here
@@ -45,3 +48,30 @@ function calculator(value){
     }
     return tax;
 }
+//add commas to numbers
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+function updateTextView(_obj){
+    var num = getNumber(_obj.val());
+    if(num==0){
+        _obj.val('');
+    }else{
+        _obj.val(num.toLocaleString());
+    }
+}
+function getNumber(_str){
+    var arr = _str.split('');
+    var out = new Array();
+    for(var cnt=0;cnt<arr.length;cnt++){
+        if(isNaN(arr[cnt])==false){
+            out.push(arr[cnt]);
+        }
+    }
+    return Number(out.join(''));
+}
+$(document).ready(function(){
+    $('#income').on('keyup',function(){
+        updateTextView($(this));
+    });
+});
