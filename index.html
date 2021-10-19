@@ -35,8 +35,15 @@
 <body onkeydown="BindEvent(event);">
     <header><h2>Income Tax Calculator of New Zealand</h2></header>
     <div>
-        <p>Please input your annual income below (Annual income=hourly income x 2080hr)</p>
-        <span>$</span><input placeholder="" name="income" id="income"/>
+        <p>Please input your income below (Annual income=hourly income x 2080hr)</p>
+        <div class="select-radio">
+            <span>Calculate by</span>
+            <input type="radio" name="income-type" value="annual" checked>
+            <label>annual income</label>
+            <input type="radio" name="income-type" value="hour">
+            <label>hourly income</label>
+        </div>
+        <span>$</span><label for="income"></label><input placeholder="" name="income" id="income"/>
         <button onclick="calculateTax()">Calculate</button><button onclick="location.reload()">Clear</button>
     </div>
     <div id="result" style="display:none">

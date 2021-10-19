@@ -11,8 +11,12 @@ function BindEvent(e){
 }
 //the tax calculating function
 function calculateTax(){
+    const type = $("input[type='radio']:checked").val();
     let income = document.getElementById("income").value.replace(/,/g, "");
-    console.log(income);
+    if(type==="hour"){
+        income=income*2080;
+        console.log(1);
+    }
     if(!income){
         alert("Your income cannot be none (so poor, man T-T)");
         return;
@@ -54,7 +58,7 @@ function numberWithCommas(x) {
 }
 function updateTextView(_obj){
     var num = getNumber(_obj.val());
-    if(num==0){
+    if(num===0){
         _obj.val('');
     }else{
         _obj.val(num.toLocaleString());
@@ -62,9 +66,9 @@ function updateTextView(_obj){
 }
 function getNumber(_str){
     var arr = _str.split('');
-    var out = new Array();
+    var out = [];
     for(var cnt=0;cnt<arr.length;cnt++){
-        if(isNaN(arr[cnt])==false){
+        if(isNaN(arr[cnt])===false){
             out.push(arr[cnt]);
         }
     }

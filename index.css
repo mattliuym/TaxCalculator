@@ -2,3 +2,12 @@ body{
     text-align: center;
     width: 95%;
 }
+#result{
+    text-align: center;
+}
+#result table{
+    margin:0 auto;
+}
+.select-radio{
+    margin-bottom: 1%;
+}
