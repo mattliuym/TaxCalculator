@@ -57,7 +57,7 @@ function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 function updateTextView(_obj){
-    var num = getNumber(_obj.val());
+    let num = getNumber(_obj.val());
     if(num===0){
         _obj.val('');
     }else{
@@ -65,9 +65,9 @@ function updateTextView(_obj){
     }
 }
 function getNumber(_str){
-    var arr = _str.split('');
-    var out = [];
-    for(var cnt=0;cnt<arr.length;cnt++){
+    let arr = _str.split('');
+    let out = [];
+    for(let cnt=0;cnt<arr.length;cnt++){
         if(isNaN(arr[cnt])===false){
             out.push(arr[cnt]);
         }
